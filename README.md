@@ -8,8 +8,11 @@ The detailed instruction of this **repo** is as follows:
 
 Our datataset is originally crawled from [Java 11 API](https://docs.oracle.com/en/java/javase/11/docs/api/). It is comprised as follows:
 - training & validation set
+
 Used for the training & validation of decompilation 
+
 - noisy test test with salt-and-pepper noise introduced 
+
 Used for the validation of the models' fault-tolearance.
 
 ## models
