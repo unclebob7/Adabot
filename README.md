@@ -48,7 +48,7 @@ sh demo_pure.sh
 sh demo_redundant.sh
 ```
 
-- for the validation of fault-tolerance on noisy testset
+- for the validation of fault-tolerance on noisy test set
 ```sh
 python3 noisy_test.py
 ```
