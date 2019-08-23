@@ -7,11 +7,11 @@ The detailed instruction of this **repo** is as follows:
 
 **datatset**:
 
-The folder consists of training & validation set originally crawled from [Java 11 API](https://docs.oracle.com/en/java/javase/11/docs/api/) which is used for the training & validation of decompilation as well as noisy test test with salt-and-pepper noise introduced which for the validation of the models' fault-tolearance.
+The folder consists of training & validation set originally crawled from [Java 11 API](https://docs.oracle.com/en/java/javase/11/docs/api/) which is used for the training & validation of decompilation as well as noisy test test with salt-and-pepper noise introduced which is used for the validation of the models' fault-tolearance.
 
 **models**:
 
-The folder consists of the attention-based NMT and vanilla Transformer achitectures, .
+The folder consists of the attention-based NMT and vanilla Transformer achitectures.
 
 **paper**:
 
