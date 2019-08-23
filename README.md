@@ -4,14 +4,30 @@ Reverse Engineering(RE) has been a fundamental task in software engineering. How
 
 The detailed instruction of this **repo** is as follows:
 
-**datatset**:
+## datatset 
 
 The folder consists of training & validation set originally crawled from [Java 11 API](https://docs.oracle.com/en/java/javase/11/docs/api/) which is used for the training & validation of decompilation as well as noisy test test with salt-and-pepper noise introduced which is used for the validation of the models' fault-tolearance.
 
-**models**:
+## models
 
 The folder consists of the attention-based NMT and vanilla Transformer achitectures.
+The details are as follows:
 
-**paper**:
+- for purified dataset
+```sh
+python -m nmt.nmt --num_gpus=2 --attention=scaled_luong --src=bcode --tgt=code --vocab_prefix=./tmp/pure/prepro/vocab --train_prefix=./tmp/pure/prepro/train --dev_prefix=./tmp/pure/prepro/eval --test_prefix=./tmp/pure/prepro/test --out_dir=./tmp/adabot_pure --num_train_steps=100000 --steps_per_stats=100 --batch_size=16 --infer_batch_size=16 --num_layers=2 --num_units=128 --dropout=0.2 --metrics=bleu --src_max_len=400 --target_max_len=25 --src_max_len_infer=400 --target_max_len_infer=25
+```
+
+- for redundant dataset
+```sh
+python -m nmt.nmt --num_gpus=2 --attention=scaled_luong --src=bcode --tgt=code --vocab_prefix=./tmp/redundant/prepro/vocab --train_prefix=./tmp/redundant/prepro/train --dev_prefix=./tmp/redundant/prepro/eval --test_prefix=./tmp/redundant/prepro/test --out_dir=./tmp/adabot_redundant --num_train_steps=100000 --steps_per_stats=100 --num_layers=3 --num_units=256 --batch_size=8 --infer_batch_size=8 --dropout=0.2 --metrics=bleu --src_max_len=650 --target_max_len=50 --src_max_len_infer=650 --target_max_len_infer=50
+```
+
+- for the validation of fault-tolerance on noisy testset
+```sh
+python -m nmt.nmt --ckpt=./tmp/adabot_pure/translate.ckpt-30000 --infer_batch_size=16 --inference_input_file=./tmp/bcode_pure/p_0.01_eval.bcode --inference_output_file=./tmp/noisy_pure/noisy_0.01
+```
+
+## paper
 
 The details of our work could be found in this paper.
