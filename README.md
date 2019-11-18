@@ -56,3 +56,17 @@ python3 noisy_test.py
 ## paper
 
 The details of our work could be found in this paper.
+
+## Procedure to validate a checkpointed model
+
+python -m nmt --ckpt=./nmt_ckpt/translate.ckpt-30000 --infer_batch_size=16 --inference_input_file=../../../dataset/dataset/pure/prepro/eval.bcode --inference_output_file=/home/abhiraj/adabot/Adabot/models/nmt/nmt/tmp/output_infe
+
+where 
+
+ckpt refers to the checkpointed file
+inference_input_file refers to the file containing the byte code to be used as test input
+inference_output_file refers to the file where you would like the results to be stored
+
+The zipped folder of the nmt model has a few dependencies missing and these can be obtained from the following repository: https://github.com/tensorflow/nmt/tree/master/nmt
+
+In particular, be sure to download the scripts, testdata and test_data folders from the repository above and add them to the folder containing the nmt model before running the command above. 
